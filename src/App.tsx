@@ -1,13 +1,13 @@
 import { Link, Route, Routes } from 'react-router-dom'
 import './App.css'
-import TicTacToe from './pages/TicTacToe'
+import TicTacToe from './pages/TickTacToe/TicTacToe'
 
 const questions = [
   {
     path: '/tic-tac-toe',
     title: 'Tic Tac Toe',
     description: 'Play a game of Tic Tac Toe.',
-    element: <TicTacToe />,
+    element: <TicTacToe size={3}/>,
   },
 ]
 
