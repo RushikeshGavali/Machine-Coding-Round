@@ -1,7 +1,8 @@
 import { useCallback, useRef, useState } from "react";
 import { createInitialGrid, isWinner } from "./util";
 import Grid from "./Grid";
-import "./TicTacTow.css";
+import styles from "./TicTacToe.module.css";
+import { useNavigate } from "react-router-dom";
 
 type GameStatus = "playing" | "won" | "draw";
 
@@ -10,6 +11,7 @@ function TicTacToe({ size = 3 }: { size: number }) {
   const [isTurnX, setIsTurnX] = useState(true);
   const [status, setStatus] = useState<GameStatus>("playing");
   const count = useRef(0);
+  const navigate = useNavigate();
 
   const handleClick = useCallback(
     (rowIndex: number, colIndex: number) => {
@@ -40,18 +42,25 @@ function TicTacToe({ size = 3 }: { size: number }) {
     count.current = 0;
   };
 
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
   return (
-    <div className="container">
-      <Grid grid={grid} handleClick={handleClick} />
-      <div>
-        {status === "draw"
-          ? "Draw"
-          : status === "won"
-            ? `Winner is ${isTurnX ? "X" : "O"}`
-            : `Turn -> ${isTurnX ? "X" : "O"}`}
+    <main>
+      <button onClick={handleHomeClick}>Home</button>
+      <div className={styles.container}>
+        <Grid grid={grid} handleClick={handleClick} />
+        <div>
+          {status === "draw"
+            ? "Draw"
+            : status === "won"
+              ? `Winner is ${isTurnX ? "X" : "O"}`
+              : `Turn -> ${isTurnX ? "X" : "O"}`}
+        </div>
+        <button onClick={handleReset}>Reset</button>
       </div>
-      <button onClick={handleReset}>Reset</button>
-    </div>
+    </main>
   );
 }
 

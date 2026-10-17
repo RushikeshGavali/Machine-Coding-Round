@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 20px auto;
+  border: 2px solid black;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+}
+
+.snakeBody {
+  background-color: green;
+}
+
+.food {
+  background-color: red;
+  border-radius: 100%;
+}

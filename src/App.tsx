@@ -1,15 +1,22 @@
-import { Link, Route, Routes } from 'react-router-dom'
-import './App.css'
-import TicTacToe from './pages/TickTacToe/TicTacToe'
+import { Link, Route, Routes } from "react-router-dom";
+import "./App.css";
+import TicTacToe from "./pages/TickTacToe/TicTacToe";
+import SnakeGame from "./pages/SnakeGame/SnakeGame";
 
 const questions = [
   {
-    path: '/tic-tac-toe',
-    title: 'Tic Tac Toe',
-    description: 'Play a game of Tic Tac Toe.',
-    element: <TicTacToe size={3}/>,
+    path: "/tic-tac-toe",
+    title: "Tic Tac Toe",
+    description: "Play a game of Tic Tac Toe.",
+    element: <TicTacToe size={3} />,
   },
-]
+  {
+    path: "/snake-game",
+    title: "Snake Game",
+    description: "Enjoy Snake Game",
+    element: <SnakeGame />,
+  },
+];
 
 function HomePage() {
   return (
@@ -26,7 +33,9 @@ function HomePage() {
             <li key={question.path}>
               <Link className="exercise-link" to={question.path}>
                 <span>
-                  <strong>{index + 1}. {question.title}</strong>
+                  <strong>
+                    {index + 1}. {question.title}
+                  </strong>
                   <small>{question.description}</small>
                 </span>
                 <span aria-hidden="true">View</span>
@@ -36,7 +45,7 @@ function HomePage() {
         </ul>
       </nav>
     </main>
-  )
+  );
 }
 
 function App() {
@@ -55,12 +64,14 @@ function App() {
         element={
           <main className="page-shell">
             <h1>Page not found</h1>
-            <Link className="back-link" to="/">Back to questions</Link>
+            <Link className="back-link" to="/">
+              Back to questions
+            </Link>
           </main>
         }
       />
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;
