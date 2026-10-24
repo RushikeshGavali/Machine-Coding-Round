@@ -3,6 +3,7 @@ import "./App.css";
 import TicTacToe from "./pages/TickTacToe/TicTacToe";
 import SnakeGame from "./pages/SnakeGame/SnakeGame";
 import OTP from "./pages/OTP/OTP";
+import ToastContainer from "./pages/Toast/ToastContainer";
 
 const questions = [
   {
@@ -22,6 +23,12 @@ const questions = [
     title: "OTP",
     description: "Enter the OTP sent to your registered mobile number.",
     element: <OTP />,
+  },
+  {
+    path: "/toast",
+    title: "Toast",
+    description: "Toast notifications",
+    element: <ToastContainer />,
   },
 ];
 
