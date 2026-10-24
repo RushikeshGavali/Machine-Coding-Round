@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import TicTacToe from "./pages/TickTacToe/TicTacToe";
 import SnakeGame from "./pages/SnakeGame/SnakeGame";
+import OTP from "./pages/OTP/OTP";
 
 const questions = [
   {
@@ -15,6 +16,12 @@ const questions = [
     title: "Snake Game",
     description: "Enjoy Snake Game",
     element: <SnakeGame />,
+  },
+  {
+    path: "/otp",
+    title: "OTP",
+    description: "Enter the OTP sent to your registered mobile number.",
+    element: <OTP />,
   },
 ];
 
